@@ -1,5 +1,6 @@
 Kudyn::Application.routes.draw do
 
+  resources :students
   resources :groups
 
   devise_for :users

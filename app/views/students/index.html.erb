@@ -1,6 +1,7 @@
-<h1>Grupo: <%= @group.name %></h1>
+<h1>Estudiantes</h1>
 
-<h3>Estudiantes</h3>
+<p><%= link_to 'Crear nuevo estudiante', new_student_path, class: 'btn btn-primary' %></p>
+
 <table class="table">
   <tr>
     <th>Nombre</th>
@@ -19,5 +20,4 @@
 </table>
 
 
-<%= link_to 'Editar', edit_group_path(@group) %> |
-<%= link_to 'Regresar', groups_path %>
+

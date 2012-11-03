@@ -10,12 +10,23 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="#">Kudyn</a>
+        <% if user_signed_in? %>
+        <a class="brand">Kudyn</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
             <li class="active"><a href="#">Inicio</a></li>
           </ul>
+          <ul class="nav">
+            <li class="active"><a href="#">Asistencia</a></li>
+          </ul>
+          <ul class="nav">
+            <li class="active"><a href="#">Calificaciones</a></li>
+          </ul>
+          <ul class="nav">
+            <li class="active"><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></li>
+          </ul>
         </div><!--/.nav-collapse -->
+        <% end %>
       </div>
     </div>
   </div>
@@ -24,15 +35,7 @@
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
-
-    <% if user_signed_in? %>
-      Usuario: <%= current_user.email %> - Rol de usuario: <%= current_user.role %>. No eres tu?
-      <%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Regístrate", new_user_registration_path %> o <%= link_to "Inicia sesión", new_user_session_path %>
-    <% end %>
   </div>
-
   <div class="container">
     <%= yield %>
   </div>

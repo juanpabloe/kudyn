@@ -1,0 +1,24 @@
+<h1>Cursos</h1>
+
+<p><%= link_to 'Crear nuevo curso', new_course_path, class: 'btn btn-primary' %></p>
+
+<table class="table">
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @courses.each do |course| %>
+  <tr>
+    <td><%= link_to course.name, course_path(course) %></td>
+    <td><%= link_to 'Editar', edit_course_path(course) %></td>
+    <td><%= link_to 'Eliminar', course, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+

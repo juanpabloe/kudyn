@@ -1,0 +1,40 @@
+<%= form_for(@course) do |f| %>
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% @course.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, 'Título' %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description, 'Descripción' %>
+    <%= f.text_area :description, rows: '5', class: 'input-xxlarge' %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date, 'Fecha de inicio' %>
+    <%= f.text_field :start_date , placeholder: Time.now.strftime('%d-%m-%Y'), options: { 'data-behaviour' => 'datepicker' } %>
+  </div>
+  <div class="field">
+    <%= f.label :ending_date, 'Fecha de cierre' %>
+    <%= f.text_field :ending_date, placeholder: (Time.now + 30.days).strftime('%d-%m-%Y') %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Crear curso', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(document).on("focus", "[data-behaviour~='datepicker']", function(e){
+      $(this).datepicker({"format": "yyyy-mm-dd", "weekStart": 1, "autoclose": true});
+      });
+</script>
+

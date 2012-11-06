@@ -17,6 +17,7 @@
               <li><%= link_to "Inicio", root_path %></li>
               <% if current_user.principal? %>
                 <li><%= link_to "Grupos", groups_path %></li>
+                <li><%= link_to "Cursos", courses_path %></li>
                 <li><%= link_to "Estudiantes", students_path %></li>
               <% end %>
               <ul class="nav">

@@ -1,1 +1,9 @@
-<h1><%= @student.name %></h1>
+<h2>Detalles del estudiante</h2>
+
+<p><%= @student.name %></p>
+<p><%= @student.email %></p>
+<p><%= link_to @group.name, group_path(@student.group_id) %></p>
+
+
+<%= link_to 'Regresar', students_path %>
+

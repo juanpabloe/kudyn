@@ -12,7 +12,7 @@
 
 <% @courses.each do |course| %>
   <tr>
-    <td><%= link_to course.name, course_path(course) %></td>
+    <td><%= link_to course.title, course_path(course) %></td>
     <td><%= link_to 'Editar', edit_course_path(course) %></td>
     <td><%= link_to 'Eliminar', course, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
   </tr>

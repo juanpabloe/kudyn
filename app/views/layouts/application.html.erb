@@ -19,6 +19,7 @@
                 <li><%= link_to "Grupos", groups_path %></li>
                 <li><%= link_to "Cursos", courses_path %></li>
                 <li><%= link_to "Estudiantes", students_path %></li>
+                <li><%= link_to "Asistencia", groups_path(asistencia: true) %></li>
               <% elsif current_user.teacher? %>
                 <li><%= link_to "Grupos", groups_path %></li>
                 <li><%= link_to "Cursos", courses_path %></li>

@@ -1,3 +1,8 @@
+<% if params[:asistencia] %>
+  <%= render :partial => 'students', :locals => { :students => @students, 
+                                                  :group => @group,
+                                                  :a_sheet => @a_sheet }  %>
+<% else %>
 <h1><%= @group.name %></h1>
 
 <h3>Estudiantes</h3>
@@ -18,6 +23,5 @@
 <% end %>
 </table>
 
-
-<%= link_to 'Editar', edit_group_path(@group) %> |
 <%= link_to 'Regresar', groups_path %>
+<% end %>

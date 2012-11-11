@@ -9,6 +9,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @students = @group.students
+    @a_sheet = AttendanceSheet.new
+    @students.each { |s| @a_sheet.attendances << Attendance.new(:student => s) }
   end
 
   def new

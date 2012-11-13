@@ -55,17 +55,18 @@
         },
         yAxis: {
           title:{
-            text: "Meses"
+            text: "Calificaciones"
           }
         },
         series: [{
+          pointInterval: <%= 1.month * 1000 %>,
           data: [90, 100, 70, 80, 95]
         }]
       })
     }
       )
   </script>
-<div id="graficas" style="width:560px; height:300px;">
+<center><div id="graficas" style="width:560px; height:300px;"></center>
 </div>
 </body>
 </html>

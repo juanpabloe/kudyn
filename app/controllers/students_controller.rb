@@ -29,6 +29,7 @@ class StudentsController < ApplicationController
 
   def update
     @student = Student.find(params[:id])
+    debugger
 
     respond_to do |format|
       if @student.update_attributes(params[:student])

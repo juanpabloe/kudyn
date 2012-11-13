@@ -10,7 +10,7 @@ class Ability
       can :manage, [Course, Student]
       can :read, [Group, User]
     else
-      can :read, :all
+      can :read, [Group, Student]
     end
 
   end

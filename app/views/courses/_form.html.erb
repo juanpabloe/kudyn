@@ -27,6 +27,10 @@
     <%= f.label :ending_date, 'Fecha de cierre' %>
     <%= f.text_field :ending_date, placeholder: (Time.now + 30.days).strftime('%d-%m-%Y') %>
   </div>
+  <div class="field">
+    <%= f.label :user_id, 'Profesor del curso' %>
+    <%= f.select :user_id, User.all.collect { |g| [ g.email, g.id ] } %>
+  </div>
   <div class="actions">
     <%= f.submit 'Crear curso', class: 'btn btn-primary' %>
   </div>

@@ -1,8 +1,14 @@
 # encoding: UTF-8
 class CoursesController < ApplicationController
 
+  load_and_authorize_resource
+
   def index
-    @courses = Course.all
+    if current_user
+      @courses = current_user.courses
+    else
+      @courses = Course.all
+    end
   end
 
   def show
@@ -12,7 +18,7 @@ class CoursesController < ApplicationController
   def new
     @course = Course.new
   end
-  
+
   def edit
     @course = Course.find(params[:id])
   end

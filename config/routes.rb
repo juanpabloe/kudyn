@@ -1,5 +1,12 @@
 Kudyn::Application.routes.draw do
 
+  resources :grades do
+    collection do
+      get 'monthly'
+      post 'update_monthly'
+    end
+  end
+
   resources :students
   resources :groups
   resources :courses

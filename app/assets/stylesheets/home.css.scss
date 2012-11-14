@@ -6,3 +6,19 @@ body {
   padding-top: 60px;
   padding-bottom: 40px;
 }
+
+.hero-especial {
+  padding: 60px;
+  margin-bottom: 30px;
+  background-color: #eeeeee;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  opacity:0.85;
+  filter:alpha(opacity=85);
+  text-align:center;
+}
+
+.imagenFondo {
+ background-image:url('/app/assets/images/classroom.jpg');
+}

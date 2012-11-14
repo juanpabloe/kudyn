@@ -1,0 +1,29 @@
+<h1>Cursos</h1>
+
+<p><%= link_to 'Crear nuevo curso', new_course_path, class: 'btn btn-primary' %></p>
+
+<table class="table">
+  <tr>
+    <th>Nombre</th>
+    <th>Grupo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @courses.each do |course| %>
+  <% course.groups.each do |group| %>
+  <tr>
+    <td><%= link_to course.title, course_path(course) %></td>
+    <td><%= link_to group.name, group_path(group) %></td>
+    <td><%= link_to 'Calificar', monthly_grades_path(course_id: course.id, group_id: group.id), class: 'btn btn-success' %></td>
+    <td><%= link_to 'Editar', edit_course_path(course) %></td>
+    <td><%= link_to 'Eliminar', course, method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+
+
+

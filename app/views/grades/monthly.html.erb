@@ -1,0 +1,26 @@
+<h1>Calificaciones de <%= Date.today.strftime("%B") %></h1>
+
+<h3><%= @course.title %> </h3>
+<h3><%= @group.name %> - Estudiantes</h3>
+<table class="table">
+  <tr>
+    <th>Nombre</th>
+    <th>Calificacion mensual</th>
+    <th></th>
+  </tr>
+  <% @students.each do |student| %>
+    <%= form_for student do |f| %>
+      <tr>
+        <td><%= link_to student.name, student_path(student) %></td>
+        <%= f.fields_for :grades do |ff| %>
+          <td><%= ff.text_field :value, placeholder: '100' %></td>
+          <%= ff.hidden_field :course_id, value: params[:course_id] %></td>
+          <%= ff.hidden_field :group_id, value: params[:group_id] %></td>
+        <% end %>
+        <td><%= f.submit 'Enviar' %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+
+<%= link_to 'Regresar', course_path(@course) %>

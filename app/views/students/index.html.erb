@@ -1,0 +1,23 @@
+<h1>Estudiantes</h1>
+
+<p><%= link_to 'Crear nuevo estudiante', new_student_path, class: 'btn btn-primary' %></p>
+
+<table class="table">
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= link_to student.name, student_path(student) %></td>
+    <td><%= link_to 'Editar', edit_student_path(student) %></td>
+    <td><%= link_to 'Eliminar', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+
+

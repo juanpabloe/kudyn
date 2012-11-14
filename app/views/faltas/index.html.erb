@@ -1,0 +1,16 @@
+<h1>Asistencia</h1>
+
+<table class="table">
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @groups.each do |group| %>
+  <tr>
+    <td><%= link_to group.name, group_path(group) %></td>
+  </tr>
+<% end %>
+</table>

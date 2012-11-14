@@ -8,6 +8,8 @@ gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
 gem 'cloudfoundry-jquery-rails'
 
+gem 'bootstrap-datepicker-rails'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -18,7 +20,7 @@ end
 group :development, :test do
   gem "rspec-rails", ">= 2.11.0"
   gem "factory_girl_rails", ">= 4.0.0"
-  #gem "debugger"
+  gem "debugger"
   gem 'sqlite3'
 end
 

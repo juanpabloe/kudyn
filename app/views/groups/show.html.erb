@@ -1,10 +1,27 @@
-<p id="notice"><%= notice %></p>
+<% if params[:asistencia] %>
+  <%= render :partial => 'students', :locals => { :students => @students, 
+                                                  :group => @group,
+                                                  :a_sheet => @a_sheet }  %>
+<% else %>
+<h1><%= @group.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @group.name %>
-</p>
+<h3>Estudiantes</h3>
+<table class="table">
+  <tr>
+    <th>Nombre</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
+<% @students.each do |student| %>
+  <tr>
+    <td><%= link_to student.name, student_path(student) %></td>
+    <td><%= link_to 'Editar', edit_student_path(student) %></td>
+    <td><%= link_to 'Eliminar', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to 'Regresar', groups_path %>
+<% end %>

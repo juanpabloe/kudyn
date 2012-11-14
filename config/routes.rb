@@ -16,6 +16,7 @@ Kudyn::Application.routes.draw do
   devise_for :users
 
   get "home/index"
+  get 'home/charts'
 
   root :to => 'home#index'
 end

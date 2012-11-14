@@ -3,7 +3,7 @@
 <head>
   <title>Kudyn</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application", "jquery-1.8.2.min.js", "highcharts" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -19,6 +19,7 @@
                 <li><%= link_to "Grupos", groups_path %></li>
                 <li><%= link_to "Cursos", courses_path %></li>
                 <li><%= link_to "Estudiantes", students_path %></li>
+                <li><%= link_to "Estadísticas", home_charts_path %></li>
               <% elsif current_user.teacher? %>
                 <li><%= link_to "Grupos", groups_path %></li>
                 <li><%= link_to "Cursos", courses_path %></li>
@@ -41,85 +42,5 @@
       <%= yield %>
     </div>
   </div>
-  <script type="text/javascript">
-    $(function(){
-      new Highcharts.Chart({
-        chart:{
-          renderTo: "graficas"
-        },
-        title: {
-          text: "Calificaciones"
-        },
-        xAxis: {
-          type: "datetime"
-        },
-        yAxis: {
-          title:{
-            text: "Calificaciones"
-          }
-        },
-        series: [{
-          pointInterval: <%= 1.month * 1000 %>,
-          data: [90, 100, 70, 80, 95]
-        }]
-      })
-    }
-      );
-      $(function () {
-    var chart;
-    $(document).ready(function() {
-        chart = new Highcharts.Chart({
-            chart: {
-                renderTo: 'faltas',
-                plotBackgroundColor: null,
-                plotBorderWidth: null,
-                plotShadow: false
-            },
-            title: {
-                text: 'Faltas de todos los grupos de un determinado maestro'
-            },
-            tooltip: {
-        	    pointFormat: '{series.name}: <b>{point.percentage}%</b>',
-            	percentageDecimals: 1
-            },
-            plotOptions: {
-                pie: {
-                    allowPointSelect: true,
-                    cursor: 'pointer',
-                    dataLabels: {
-                        enabled: true,
-                        color: '#000000',
-                        connectorColor: '#000000',
-                        formatter: function() {
-                            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
-                        }
-                    }
-                }
-            },
-            series: [{
-                type: 'pie',
-                name: 'Browser share',
-                data: [
-                    ['Historia',   45.0],
-                    ['Etica',       26.8],
-                    {
-                        name: 'Matematicas',
-                        y: 12.8,
-                        sliced: true,
-                        selected: true
-                    },
-                    ['Español',    8.5],
-                    ['Arte',     6.2],
-                    ['Gym',   0.7]
-                ]
-            }]
-        });
-    });
-    
-});
-  </script>
-<center><div id="graficas" style="width:560px; height:300px;"></center>
-<center><div id="faltas" style="width:560px; height:300px;"></center>
-</div>
 </body>
 </html>

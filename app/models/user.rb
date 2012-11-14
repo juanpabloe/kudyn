@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :role
 
   has_many :courses
+  belongs_to :school
 
   def teacher?
     role == 'teacher'

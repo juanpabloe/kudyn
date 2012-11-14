@@ -10,8 +10,8 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand">Kudyn</a>
         <% if user_signed_in? %>
+          <%= link_to current_user.school.name, root_path, class: 'brand' %>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><%= link_to "Inicio", root_path %></li>
@@ -29,6 +29,8 @@
                 <li><%= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete %></li>
               </ul>
             </div><!--/.nav-collapse -->
+          <% else %>
+            <a class="brand">Kudyn</a>
         <% end %>
       </div>
     </div>
